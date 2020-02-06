@@ -10,9 +10,20 @@
 	<url>http://maven.apache.org</url>
 	<properties>
 		<javaee.version>7.0</javaee.version>
+		<spring.version>4.3.6.RELEASE</spring.version>
+		<logging.version>1.2</logging.version>
 	</properties>
 
 	<dependencies>
+		<!-- Tomcat always work well when i have index.html page ..but when i don't 
+			have and i try to add servlet it gives an error ..so this is a tip to solve 
+			it -->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>${logging.version}</version>
+		</dependency>
+		
 		<!-- Java EE API -->
 		<dependency>
 			<groupId>javax</groupId>
@@ -21,6 +32,19 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<!-- JSTL -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
 
 		<!-- JUnit -->
 		<dependency>
@@ -33,7 +57,7 @@
 	<build>
 		<finalName>onlineshopping</finalName>
 		<plugins>
-		<!-- Working With the latest JAVA version -->
+			<!-- Working With the latest JAVA version -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
